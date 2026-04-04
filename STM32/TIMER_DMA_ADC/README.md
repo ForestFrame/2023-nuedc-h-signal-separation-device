@@ -1,0 +1,7 @@
+- 在main.h文件中添加#include "timer_dma_adc.h"头文件；
+- 在主函数main()的主循环while()前加上HAL_ADC_Start_DMA(&hadc1, dmaDataBuffer, BATCH_DATA_LEN);  //启动ADC1，DMA方式；
+- 在主函数main()的主循环while()前加上HAL_TIM_Base_Start(&htim3);  //启动定时器TIM3；
+- CubeMX配置：
+  - TIM3：**将时钟树的系统时钟HCLK改为64的倍数（为了和FFT点数匹配信号周期），选择128MHz最佳；在时钟树中设置需要的APB1 Timer clocks的时钟，设置分频系数和重装载值，定时器的更新事件周期也要为64的倍数；定时器不需要开启中断；**
+  - DMA：要先在ADC1中打开DMA，设置Memory自增，数据位宽为Word；**一般使用DMA模式为Normal即DMA只传输一次数据，一次的数据量可以在函数中自行设定；**
+  - ADC1：通道随意，独立模式，设置ADC时钟的分频一般为2分频，但是要注意分频之后ADC的工作时钟不能高于36MHz，分辨率12位，右对齐，**扫描模式、连续转换模式（有定时器触发所以不需要连续转换模式）和非连续转换模式的选择都为Disable，DMA连续请求设置为Enable，**下面那个随意；**外部触发转换源选择Timer3 Trigger Out event，**上升边缘触发；采样时间选择最少的3Cycles；**ADC也不需要开启中断。**注入模式和看门狗不需要管。

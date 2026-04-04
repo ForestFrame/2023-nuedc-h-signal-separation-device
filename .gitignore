@@ -1,0 +1,117 @@
+# =========================
+# OS / editor temporary files
+# =========================
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.tmp
+*.temp
+*.bak
+*.orig
+*.swp
+*.swo
+*~
+
+# =========================
+# Root-level Git / archive noise
+# =========================
+*.zip
+*.7z
+*.rar
+
+# =========================
+# STM32 / Keil MDK-ARM
+# Keep source, .ioc, .uvprojx, startup files, and required RTE headers
+# =========================
+
+# Keil user-specific files
+*.uvoptx
+*.uvguix.*
+
+# Keil build outputs
+*.axf
+*.bin
+*.hex
+*.elf
+*.map
+*.lst
+*.o
+*.obj
+*.d
+*.dep
+*.crf
+*.lnp
+*.sct.map
+*.iex
+*.htm
+*.build_log.htm
+
+# Keil generated build folders
+STM32/MDK-ARM/Competition/
+
+# Optional local debug settings
+STM32/MDK-ARM/DebugConfig/
+
+# Event Recorder / debug traces
+*.scvd
+
+# STM32CubeIDE / generic embedded IDE noise
+.settings/
+.project
+.cproject
+Debug/
+Release/
+
+# =========================
+# Quartus / Intel FPGA
+# Keep .qpf/.qsf and RTL/IP source
+# =========================
+
+# Quartus workspace / reports / generated databases
+*.qws
+*.rpt
+*.summary
+*.smsg
+*.done
+*.jdi
+*.pin
+*.sld
+*.sof
+*.pof
+*.cdf
+
+FPGA/quartus_prj/db/
+FPGA/quartus_prj/incremental_db/
+FPGA/quartus_prj/output_files/
+FPGA/quartus_prj/greybox_tmp/
+
+# Quartus simulation output
+FPGA/quartus_prj/simulation/
+FPGA/quartus_prj/competition_nativelink_simulation.rpt
+
+# Generated greybox temp under IP
+**/greybox_tmp/
+
+# =========================
+# ModelSim / simulation caches
+# =========================
+modelsim.ini
+transcript
+vsim.wlf
+*.wlf
+*.vstf
+work/
+rtl_work/
+
+# =========================
+# Office temporary files
+# =========================
+~$*.docx
+~$*.doc
+~$*.xlsx
+~$*.pptx
+
+# =========================
+# Logs
+# =========================
+*.log

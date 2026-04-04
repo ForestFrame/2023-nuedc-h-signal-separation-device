@@ -1,0 +1,7 @@
+- 使能Use MicroLIB；
+- 在main.h文件中添加#include "uart.h"头文件；
+- 在stm32f4xx_it.c文件中添加#include "uart.h"头文件；
+- 只需要开启串口2的中断，不需要开启串口1的中断；
+- 时钟滴答计时器的中断优先级要高于串口接收中断优先级；
+- 在主函数main()的主循环while()前加上HAL_UART_Receive_IT(&huart2, rxBuffer2, RX_CMD_LEN2); //启动中断接收；
+- 在stm32f4xx_it.c文件中的函数USART2_IRQHandler(void)中加上on_UART_IDLE(&huart2);  //检测空闲事件中断并处理。
