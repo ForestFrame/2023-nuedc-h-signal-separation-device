@@ -11,6 +11,7 @@ Desktop.ini
 *.swp
 *.swo
 *~
+.vscode/
 
 # =========================
 # Root-level Git / archive noise
